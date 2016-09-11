@@ -1,0 +1,24 @@
+<!--订单详情-->
+<table class="info-table">
+    <thead>
+        <tr>
+            <template v-for="val in titles">
+                <th v-bind:style="val.styleObject">
+                    {{val.text}}
+                </th>
+            </template>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{val.orderSn}}</td>
+            <td>{{val.logisticsSn}}</td>
+            <td>{{val.createDate}}</td>
+            <td>{{val.receiveCompany}}</td>
+            <td>{{val.channelName}}</td>
+            <td>{{val.receiverName}}</td>
+            <td>{{val.receiverPhone}}</td>
+            <td>{{val.quantity}}</td>
+        </tr>
+    </tbody>
+</table>

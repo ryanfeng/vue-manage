@@ -1,0 +1,345 @@
+/*
+* 表格样式
+* */
+/*
+* 整站变量
+* */
+/*
+* 全站颜色
+* */
+.mainColor {
+  color: #00B3A9;
+}
+.secondColor {
+  color: #1BB8CE;
+}
+.thirdlyColor {
+  color: #424F63;
+}
+.textColor {
+  color: #7A7676;
+}
+.secondTextColor {
+  color: #9b9b9b;
+}
+.warningColor {
+  color: #e73a33;
+}
+.primaryColor {
+  color: #4a90e2;
+}
+.openColor {
+  color: #abcd03;
+}
+.closeColor {
+  color: #fa8564;
+}
+.whiteBg {
+  background-color: #fff;
+}
+/*
+* 变量样式
+* */
+/*圆角兼容*/
+/*容器阴影兼容*/
+/*文字阴影兼容*/
+/*动画效果*/
+/*圆角*/
+/*上方三角形*/
+/*下方三角形*/
+/*右方三角形*/
+/*左方三角形*/
+/*缩放大小*/
+/*旋转效果*/
+/*公用左右垂直居中*/
+.center-box {
+  display: table-cell;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+.center-table {
+  position: absolute;
+  display: table;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+.center-table .box {
+  display: table-cell;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+/*旋转动画*/
+.rotare-animate {
+  animation: animate 1s;
+  -webkit-animation: animate 1s infinite;
+  /* Safari and Chrome */
+}
+.rotare-animate-progress 100% {
+  transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  /* IE 9 */
+  -moz-transform: rotate(360deg);
+  /* Firefox */
+  -webkit-transform: rotate(360deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(360deg);
+  /* Opera */
+}
+@keyframes animate {
+  100% {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+    /* Opera */
+  }
+}
+@-webkit-keyframes animate {
+  100% {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+    /* Opera */
+  }
+}
+/* Safari and Chrome */
+th {
+  text-align: left;
+}
+/*input表格*/
+.input-form {
+  width: 100%;
+  margin-top: 40px;
+}
+.input-form .caption {
+  color: #4a4a4a;
+  font-size: 20px;
+}
+.input-form tr.line {
+  border-bottom: 2px solid rgba(221, 221, 221, 0.8);
+}
+.input-form tr.line th,
+.input-form tr.line td {
+  padding-bottom: 20px;
+}
+.input-form th {
+  width: 150px;
+  padding: 14px 14px 0 0;
+  color: #424f63;
+  font-weight: normal;
+  font-size: 14px;
+  font-family: Light;
+  text-align: right;
+}
+.input-form td {
+  padding: 14px 0 0 14px;
+}
+.input-form td .hint {
+  display: block;
+  height: 14px;
+  margin: 5px 0 -5px;
+  padding-left: 3px;
+  color: #e73a33;
+  font-size: 12px;
+  line-height: 14px;
+}
+.input-form td .hint.short {
+  line-height: 20px;
+}
+.input-form td .hint.common {
+  height: auto;
+  color: #9b9b9b;
+}
+/*信息展示*/
+.info-show {
+  margin: -10px -10px 0 -10px;
+  padding: 0px 0 16px;
+  background: #f2f3f7;
+  font-family: Light;
+}
+.info-show ul {
+  display: table;
+  width: 100%;
+}
+.info-show li {
+  display: table-cell;
+  height: 100px;
+  border-left: 7px solid #f2f3f7;
+  border-right: 7px solid #f2f3f7;
+  background-color: #fff;
+  vertical-align: middle;
+  text-align: center;
+}
+.info-show li .caption {
+  padding-bottom: 10px;
+  color: #7a7676;
+  font-weight: normal;
+  font-size: 14px;
+}
+.info-show li .link {
+  color: #00B3A9;
+  font-size: 28px;
+  cursor: pointer;
+}
+.info-show li span {
+  color: #4a4a4a;
+  font-size: 28px;
+}
+.info-show li .other {
+  color: #7A7676;
+  font-size: 14px;
+  line-height: 20px;
+}
+.info-show li .other i {
+  font-size: 12px;
+}
+.info-show li:first-child {
+  border-left: none;
+}
+.info-show li:last-child {
+  border-right: none;
+}
+.info-show .hint {
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 100px;
+  text-align: center;
+}
+.info-show.special {
+  margin: 0;
+  padding: 20px 0;
+  background: #fff;
+}
+.info-show.special li {
+  height: 60px;
+  border-left: 7px solid #fff;
+  border-right: 7px solid #fff;
+}
+.info-show.special .hint {
+  line-height: 60px;
+}
+.info-table {
+  width: 100%;
+  text-align: left;
+}
+.info-table thead th {
+  padding: 13px 10px 18px;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1.5px solid #cccccc;
+  box-shadow: 0px 2px 0px #e0e0e0;
+  color: #4a4a4a;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+}
+.info-table tbody tr:hover {
+  background-color: #F2F3F7;
+}
+.info-table tbody td {
+  min-width: 40px;
+  padding: 10px;
+  border-bottom: 1px solid #dddddd;
+  color: #7a7676;
+  font-size: 14px;
+  line-height: 22px;
+  vertical-align: middle;
+  word-break: break-all;
+}
+.info-table tbody td.noLine {
+  border-bottom: 0;
+}
+.info-table tbody td.long {
+  max-width: 180px;
+}
+.info-table tbody .no-break {
+  word-break: normal;
+}
+.info-table tbody .min-width {
+  min-width: 80px;
+}
+.info-table tbody .ellipsis {
+  max-width: 120px;
+  text-overflow: ellipsis;
+  word-break: normal;
+  white-space: nowrap;
+}
+.info-table tbody .tools {
+  min-width: 154px;
+}
+.info-table tbody .tools ul {
+  font-size: 0;
+}
+.info-table tbody .tools li {
+  display: inline-block;
+  font-size: 14px;
+}
+.info-table tbody .tools li a {
+  color: #00B3A9;
+}
+.info-table tbody .tools li a:hover {
+  text-decoration: underline;
+}
+.info-table tbody .tools li:after {
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  padding-right: 5px;
+  color: #aaa;
+  font-size: 12px;
+  content: "|";
+}
+.info-table tbody .tools li:last-child:after {
+  content: "";
+}
+.info-table tbody .mw271 {
+  min-width: 271px;
+}
+.info-table tbody .labelList {
+  padding-left: 50px;
+  font-size: 0;
+}
+.info-table tbody .labelList li {
+  display: inline-block;
+  width: 160px;
+  font-size: 14px;
+}
+.info-table th:first-child,
+.info-table td:first-child {
+  padding-left: 20px;
+}
+.info-table th:last-child,
+.info-table td:last-child {
+  padding-right: 20px;
+}
+.info-table th.firstDefault,
+.info-table td.firstDefault {
+  padding-left: 10px;
+}
+.info-table.haveBorder td {
+  border-right: 1px solid #ddd;
+}
+.info-table.noTopBottomLine th {
+  border-top: 0;
+}
+.info-table.noTopBottomLine tr:last-child td {
+  border-bottom: 0;
+}

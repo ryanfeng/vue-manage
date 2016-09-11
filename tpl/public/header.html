@@ -1,0 +1,26 @@
+<!--公用头部-->
+<header id="header">
+    <h1 id="LOGO"><a href="javascript:void(0)"><img src="../../images/public/LOGO.png"></a></h1>
+    <!--用户信息-->
+    <div class="user-info">
+        <a href="javascript:void(0)">
+            <i class="icon icon-user">&#xe600;</i>
+            <strong class="name"><span class="pr5">{{name}}</span><i class="icon icon-arrow">&#xe602;</i></strong>
+        </a>
+        <!--工具-->
+        <ul class="tools">
+            <li v-show="username != 'admin'">
+                <a href="{{tools.editPassword.href}}">
+                    <i class="icon">{{{tools.editPassword.icon}}}</i>
+                    <h5>{{tools.editPassword.text}}</h5>
+                </a>
+            </li>
+            <li v-on:click="userLogout">
+                <a href="{{tools.logout.href}}">
+                    <i class="icon">{{{tools.logout.icon}}}</i>
+                    <h5>{{tools.logout.text}}</h5>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>

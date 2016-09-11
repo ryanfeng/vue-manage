@@ -1,0 +1,119 @@
+/*
+登录页面
+*/
+@import "../public/var.less";
+html,body{
+  height: 100%;
+}
+body{
+  min-height: 510px;
+}
+.login-bg{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  min-height: 100%;
+}
+#login{
+  display: inline-block;
+  position: relative;
+  width:448px;
+  height:422px;
+  border:1px solid #cfd6de;
+  border-radius:3px;
+  background:rgba(255,255,255,0.30);
+  ul{
+    li{
+      position: relative;
+      padding-top: 23px;
+      .input{
+        padding:0 50px 0 40px;
+      }
+      .icon{
+        position: absolute;
+        top:34px;
+        left:63px;
+      }
+      .icon-warning{
+        display: none;
+        position: absolute;
+        top:34px;
+        right: 63px;
+      }
+      &.warning{
+        .icon-warning{
+          display: block;
+        }
+        .input{
+          border:1px solid @warningColor;
+          color: @warningColor;
+        }
+        &:hover{
+          .tooptip{
+            opacity: 1;
+            visibility:visible;
+          }
+        }
+      }
+    }
+  }
+  .next-auto-login{
+    display: inline-block;
+    float: left;
+    padding-left:50px;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+#login-logo{
+  width: 239px;
+  height: 96px;
+  margin:45px auto 25px;
+  background: url("/images/public/BG.png") no-repeat;
+}
+.Copyright{
+  position: absolute;
+  bottom:15px;
+  width: 100%;
+  color:#ffffff;
+  font-weight: normal;
+  font-size:12px;
+  font-family:Arial;
+  text-align: center;
+}
+/*tooptip样式*/
+.tooptip {
+  position: absolute;
+  top: 68px;
+  right: 50px;
+  z-index: 8;
+  padding: 5px 10px 5px 20px;
+  background-color: #4a4a4a;
+  opacity: 1;
+  color: #fff;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 30px;
+  opacity: 0;
+  visibility:hidden;
+  .transition(all,0.2s);
+  &:before,&:after {
+    position: absolute;
+    top: -7px;
+    right: 24px;
+    content: "";
+    border-top: 0;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #4a4a4a;
+    border-left: 7px solid transparent;
+  }
+  &:after {
+    top: -5px;
+    right: 25px;
+    border-top: 0;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #4a4a4a;
+    border-left: 6px solid transparent;
+  }
+}

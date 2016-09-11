@@ -1,0 +1,24 @@
+<!--批次列表-->
+<table class="info-table order-device-list">
+    <thead>
+    <tr>
+        <th v-for="val in titles" v-bind:style="val.styleObject">
+            {{val.text}}
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr v-for="val in dataList">
+            <td>{{$index+1+page}}</td>
+            <td>{{val.modelName}}</td>　
+            <td>{{val.sn}}</td>　
+            <td>{{val.deviceView.modelName}}</td>　
+            <td>{{val.deviceView.sn}}</td>　
+            <td>{{val.deviceView.factoryName}}</td>　
+            <td>{{val.factoryName}}</td>　
+        </tr>
+        <tr v-if="dataList.length==0" class="tc">
+            <td colspan="7"><b>没有数据</b></td>
+        </tr>
+    </tbody>
+</table>

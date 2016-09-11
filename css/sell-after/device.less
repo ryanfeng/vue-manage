@@ -1,0 +1,78 @@
+/*
+售后设备管理页面
+*/
+@import "../public/var.less";
+/*设备选择*/
+.device-select{
+  padding:0 10px;
+  font-size: 0;
+  li{
+    display: inline-block;
+    position: relative;
+    min-width: 112px;
+    margin-right: 20px;
+    border-bottom: 2px transparent;
+    font-size:16px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    a{
+      display: block;
+      color: @textColor;
+    }
+    /*选中*/
+    &.active{
+      cursor: default;
+      &:before{
+        position: absolute;
+        bottom:0;
+        left:50%;
+        margin-left: -10px;
+        .triangle-top(10px,@mainColor);
+        content: "";
+      }
+      a{
+        cursor: default;
+      }
+      border-bottom: 2px solid @mainColor;
+    }
+    /*hover*/
+    &:hover{
+      a{
+        color:@inputTextColor;
+      }
+    }
+  }
+}
+/*设备型号菜单*/
+.device-category-select{
+  padding:0 10px;
+  font-size: 0;
+  li{
+    display: inline-block;
+    position: relative;
+    padding:0 20px;
+    font-size: 14px;
+    color: @textColor;
+    cursor: pointer;
+    &:before{
+      position: absolute;
+      left:0;
+      color: @textColor;
+      content: "|";
+    }
+    &:hover{
+      color:@inputTextColor;
+    }
+    &:first-child{
+      padding-left: 0;
+      &:before{
+        content: "";
+      }
+    }
+    &.active{
+      color: @mainColor;
+      cursor: default;
+    }
+  }
+}

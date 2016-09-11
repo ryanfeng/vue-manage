@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>地球村后台管理中心</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/public/style.css"/>
+    <link rel="stylesheet" href="/css/data-count/index.css"/>
+    <link rel="shortcut icon" href="/images/public/title_icon.png" type="image/x-icon">
+</head>
+<body class="bg data-count-school" id="data-count">
+<!--主要部分-->
+<main id="main" class="transparent">
+    <div class="container paddingNone">
+        <!--柱状图-->
+        <ul class="histogram clearfix"> 
+            <li class="new-device full">
+                <!--新增设备-->
+                <h5 class="h5-caption">新增设备</h5>
+                <div v-if="!show" class="info-show special">
+                    <div class="hint pt50">正在加载中...</div>
+                </div>
+                <template v-if="show">
+                    <div id="new-device" class="chart"></div>
+                </template>
+            </li>
+        </ul>
+        <!--学校设备状况-->
+        <div class="school-device-status mt20">
+            <div v-if="!list" class="info-show special">
+                <div class="hint">正在加载中...</div>
+            </div>
+            <template v-if="list">
+                <div class="info-show special">
+                    <ul>
+                        <li v-for="val in list">
+                            <h5 class="caption">{{val.title}}</h5>
+                            <span>{{val.text}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt20">
+                    <div class="info-show special">
+                        <ul>
+                            <li v-for="val in schoolList">
+                                <h5 class="caption">{{val.title}}</h5>
+                                <span>{{val.text}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <!--校园设备统计列表-->
+        <div class="school-device-count mt20">
+            <div v-if="!titles" class="info-show special">
+                <div class="hint">正在加载中...</div>
+            </div> 
+            <div class="whiteBg pl10 pr10">
+                <template v-if="titles">
+                    <table class="info-table noTopBottomLine">
+                        <thead> 
+                        <tr>
+                            <th v-for="val in titles" v-bind:style="val.styleObject">{{val.text}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="list in datalist">
+                                <td>{{$index+1}}</td>
+                                <td>{{list.contact_name}}</td>
+                                <td>{{list.name}}</td>
+                                <td>{{list.totalCount}}</td>
+                                <td>{{list.paidCount}}</td>
+                                <td>{{list.unpaidCount}}</td>
+                            </tr>
+                            <tr v-if="!dataList" class="tc">
+                                <td colspan="6"><b>没有数据</b></td>
+                            </tr>
+                        </tbody>
+                    </table> 
+                </template>
+            </div> 
+        </div>
+    </div>
+</main>
+</body>
+<script src="/js/common.js" data-main="/js/data-count/school.js"></script>
+</html>

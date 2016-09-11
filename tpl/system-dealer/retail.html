@@ -1,0 +1,66 @@
+<!--零售经销商列表-->
+<table class="info-table">
+    <thead>
+    <tr>
+        <th v-for="val in titles" v-bind:style="val.styleObject">
+            <template v-if="val.select">
+                <!--省份-->
+                <div class="sod_select">
+                    <div class="sod_label">{{val.active}}</div>
+                    <div class="sod_list">
+                        <ul>
+                            <li v-for="option in val.options" v-on:click="val.click(option.isEnable,val)" class="{{option.class}}">{{option.text}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </template>
+            <template v-else>
+                {{val.text}}
+            </template>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr v-for="val in dataList">
+            <td>{{$index+1+page}}</td>
+            <td>{{val.level==1?'总代':'经销商'}}</td>
+            <td><div v-for="address in val.salesArea">{{address}}</div></td>
+            <td>{{val.createDate}}</td>
+            <td>{{val.contactName}}</td>
+            <td>{{val.contactPhone}}</td>
+            <td>{{val.address}}</td>
+            <td>
+                <template v-if="val.webUserView.isEnable==1">
+                    <i class="icon openColor">&#xe623;</i>
+                </template>
+                <template v-else>
+                    <i class="icon closeColor">&#xe622;</i>
+                </template>
+            </td>
+            <td class="tools"> 
+                <ul> 
+                    <li v-if="val.tools.editShow">
+                        <a href="./edit-retail.html?dealerId={{val.dealerId}}">{{val.tools.edit}}</a> 
+                    </li>
+                    <li v-if="val.tools.statusChange">
+                        <template v-if="val.webUserView.isEnable==1">
+                            <a href="javascript:void(0)" v-on:click="statueChange(val)">{{val.tools.statusTrue}}</a>
+                        </template>
+                        <template v-else>
+                            <a href="javascript:void(0)" v-on:click="statueChange(val)">{{val.tools.statusFalse}}</a>
+                        </template>
+                    </li>
+                    <li>
+                        <a href="./device-list.html?dealerId={{val.dealerId}}&body=system-dealer-retail">{{val.tools.look}}</a>
+                    </li>
+                    <li v-if="val.tools.delShow">
+                        <a href="javascript:void(0)" v-on:click="dealerDel(val)">{{val.tools.del}}</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr v-if="dataList.length==0" class="tc">
+            <td colspan="9"><b>没有数据</b></td>
+        </tr>
+    </tbody>
+</table>

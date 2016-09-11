@@ -1,0 +1,65 @@
+<!--编辑角色-->
+<table class="info-table haveBorder">
+    <thead>
+    <tr>
+        <th v-for="val in titles" v-bind:style="val.styleObject">{{val.text}}</th>
+    </tr>
+    </thead>
+    <tbody v-for="val in dataList">
+            <tr v-for="subInfo in val.subInfo">
+                <td class="vm" rowspan="{{val.row}}" v-if="subInfo.first">{{val.number}}</td>
+                <td class="vm" rowspan="{{val.row}}" v-if="subInfo.first" v-show="val.isDisplay">
+                    <label class="cp pl50 checkout-table" v-on:click="firstSelect(val)">
+                        <span class="checkout-box notClick {{val.hasIt?'on':''}}" >
+                            <input class="radio hide" type="checkbox" disabled checked="{{val.hasIt?true:false}}"/>
+                        </span>
+                        <span class="vm">
+                            {{val.permissionName}}
+                        </span>
+                    </label>
+                </td>
+                <td class="firstDefault">
+                    <template v-if="subInfo.second.text">
+                        <ul class="labelList">
+                            <li data="2">
+                                <label class="cp checkout-table" v-on:click="secondSelect(val,subInfo.second,subInfo.third)">
+                                    <span class="checkout-box notClick {{subInfo.second.hasIt?'on':''}}" >
+                                        <input class="radio hide" type="checkbox" disabled checked="{{subInfo.second.hasIt?true:false}}"/>
+                                    </span>
+                                    <span class="vm">
+                                        {{subInfo.second.text}}
+                                    </span>
+                                </label>
+                            </li>
+                        </ul>
+                    </template>
+                </td>
+                <td>
+                    <ul class="labelList">
+                        <template v-for="info in subInfo.third">
+                            <li data="3"  v-show="info.isDisplay">
+                                <label class="cp checkout-table" v-on:click="thirdSelect(val,subInfo.second,subInfo.third,info)">
+                                    <span class="checkout-box notClick {{info.hasIt?'on':''}}" >
+                                        <input class="radio hide" type="checkbox" disabled checked="{{info.hasIt?true:false}}"/>
+                                    </span>
+                                    <span class="vm">
+                                        {{info.text}}
+                                    </span>
+                                </label>
+                            </li>
+                        </template>
+                    </ul>
+                </td>
+            </tr>
+    </tbody>
+    <tfoot>
+        <tr v-if="submitText">
+            <td colspan="4" class="noLine">
+                <div class="pl50 mt20 pt20">
+                    <a href="javascript:void(0)" class="btn {{submitClass}} mr5" v-on:click="submit">{{submitText}}</a>
+                    <a href="./role.html" class="btn btn-default mr5">{{cancelText}}</a>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>

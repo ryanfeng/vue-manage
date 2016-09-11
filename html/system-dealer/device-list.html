@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>地球村后台管理中心</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/public/style.css"/>
+    <link rel="stylesheet" href="/css/system-manage/user.css"/>
+    <link rel="shortcut icon" href="/images/public/title_icon.png" type="image/x-icon">
+</head>
+<body class="bg" id="system-dealer">
+<!--主要部分-->
+<main id="main">
+    <!--位置-->
+    <div class="location">
+        <location></location>
+    </div>
+    <div class="container">
+        <!--新增角色&&搜索-->
+        <div class="pr mt50">
+            <!--搜索-->
+            <div class="search">
+                <search></search>
+            </div>
+        </div>
+        <!--筛选-->
+        <div class="tr select pt20 pr20">
+            <template v-if="title"> 
+                <span class="vm textColor f14">{{title}}</span>
+                    <!--请选择设备分类-->
+                    <div class="sod_select area">
+                        <div class="sod_label">{{categoryList.active.categoryName}}</div>  
+                        <div class="sod_list">
+                            <ul> 
+                                <li v-for="option in categoryList.list" class="{{option.class}} notSetVal" v-on:click="selectCategory(option,categoryList)">{{option.categoryName}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--请选择设备类型-->
+                    <div class="sod_select area onRight">
+                        <div class="sod_label">{{modelList.active.modelName}}</div>  
+                        <div class="sod_list">
+                            <ul> 
+                                <li v-for="option in modelList.list" class="{{option.class}} notSetVal" v-on:click="modelList.select(option,modelList)">{{option.modelName}}</li>
+                            </ul>
+                        </div>
+                    </div>
+            </template>
+        </div>
+        <!--信息表格-->
+        <div class="pl10 pr10 pt30 info-table-box">
+            
+        </div>
+        <div class="page"></div>
+    </div>
+</main>
+</body>
+<script src="/js/common.js" data-main="/js/system-dealer/device-list.js?"></script>
+</html>

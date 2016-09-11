@@ -1,0 +1,28 @@
+<!--设备型号列表-->
+<table class="info-table">
+    <thead>
+    <tr>
+        <th v-for="val in titles" v-bind:style="val.styleObject">
+            {{val.text}}
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr v-for="val in dataList">
+            <td>{{$index+1+page}}</td>
+            <td>{{val.grade}}</td>
+            <td>{{val.className}}</td>
+            <td>{{val.deviceNums}}</td>
+            <td class="tools">
+                <ul>
+                    <li>
+                        <a v-bind:style="val.tools.style" href="./edit-class.html?classId={{val.classId}}&schoolId={{schooleId}}">{{val.tools.edit}}</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr v-if="dataList.length==0" class="tc">
+            <td colspan="7"><b>没有数据</b></td>
+        </tr>
+    </tbody>
+</table>

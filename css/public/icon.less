@@ -1,0 +1,43 @@
+/*
+* 图标样式
+* */
+@import "../public/var.less";
+//@font-face {
+//  font-family: 'Light';
+//  src: url('/font/STHeiti Light.ttc'); /* IE9*/
+//}
+//@font-face {
+//  font-family: 'Medium';
+//  src: url('/font/STHeiti Medium.ttc'); /* IE9*/
+//}
+@font-face {font-family: 'iconfont';
+  src: url('/font/iconfont.eot'); /* IE9*/
+  src: url('/font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/font/iconfont.woff') format('woff'), /* chrome、firefox */
+  url('/font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('/font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.icon{
+  position: relative;
+  top:-1px;
+  font-size:18px;font-style:normal;
+  font-family:"iconfont";
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-p{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("/images/public/BG.png") no-repeat;
+  vertical-align: middle;
+  &.icon-small-big{
+    width: 30px;
+    height: 30px;
+  }
+}
+.icon-warning{
+  background-position: 0 -140px;
+}

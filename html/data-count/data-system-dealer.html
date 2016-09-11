@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>地球村后台管理中心</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/public/style.css"/>
+    <link rel="stylesheet" href="/css/data-count/index.css"/>
+    <link rel="shortcut icon" href="/images/public/title_icon.png" type="image/x-icon">
+</head>
+<body class="bg data-count-system-dealer" id="data-count">
+<!--主要部分-->
+<main id="main" class="transparent">
+    <div class="container paddingNone">
+        <!--柱状图-->
+        <ul class="histogram clearfix">
+            <!--新增用户-->
+            <li class="new-user">
+                <h5 class="h5-caption">新增用户</h5>
+                <div v-if="!show" class="info-show special">
+                    <div class="hint pt50">正在加载中...</div>
+                </div>
+                <template v-if="show">
+                    <div id="new-user" class="chart"></div>
+                </template>
+            </li>
+            <!--新增设备-->
+            <li class="new-device">
+                <h5 class="h5-caption">新增设备</h5>
+                <div v-if="!show" class="info-show special">
+                    <div class="hint pt50">正在加载中...</div>
+                </div>
+                <template v-if="show">
+                    <div id="new-device" class="chart"></div>
+                </template>
+            </li>
+        </ul>
+        <!--趋势分析-->
+        <div class="trend mt20">
+            <!--趋势分析-头部-->
+            <div class="trend-top"> 
+                <h5 class="h5-caption mt20">
+                    趋势分析:
+                    <template v-if="time">
+                        <span class="secondTextColor pl5">{{time}}</span>
+                    </template>
+                </h5>
+                <template v-if="btns">
+                    <div class="btns">
+                        <input v-for="btn in btns" type="button" class="btn mr10 btn-noActive {{btn.class}}" v-on:click="clickBtn(btn)" value="{{btn.value}}"> 
+                    </div>  
+                    <div class="select">
+                        <b class="">{{select.title}}</b>  
+                        <input placeholder="{{select.placeholder}}" v-model="select.startValue" class="input input-small {{select.startClass}}" v-on:blur="blur(select.startValue,select,'startClass')" v-on:focus="focus(select,'startClass')" value="{{select.startValue}}">
+                        <span>—</span> 
+                        <input placeholder="{{select.placeholder}}" v-model="select.endValue" class="input input-small {{select.endClass}}" v-on:blur="blur(select.endValue,select,'endClass')" v-on:focus="focus(select,'endClass')" value="{{select.endValue}}">
+                        <input type="button" class="btn btn-success vm" v-on:click="submit" value="{{select.submitValue}}">
+                    </div> 
+                </template> 
+            </div>   
+            <div class="info-show trend-table special">
+                <div class="hint">正在加载中...</div>
+            </div>
+        </div>
+        <!--终端统计-->
+        <div class="terminal-statistics mt20">
+            <h5 class="h5-caption">终端统计</h5>
+            <div v-if="!titles" class="info-show special">
+                <div class="hint">正在加载中...</div>
+            </div>
+            <template v-if="titles">
+                <div class="whiteBg pl10 pr10">
+                    <div class="table-box">
+                        <table class="info-table noTopBottomLine">
+                            <thead> 
+                            <tr>
+                                <th v-for="val in titles" v-bind:style="val.styleObject">{{val.text}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="list in datalist">
+                                    <td>{{$index+1}}</td>
+                                    <td>{{list.modelName}}</td>
+                                    <td>{{list.usersCount}}</td>
+                                    <td>{{list.newCount}}</td>
+                                    <td>{{list.repoCount}}</td>
+                                    <td>{{list.ratio}}</td>
+                                </tr>
+                                <tr v-if="!datalist" class="tc">
+                                    <td colspan="6"><b>没有数据</b></td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</main>
+</body>
+<script src="/js/common.js" data-main="/js/data-count/data-system-dealer.js"></script>
+</html>

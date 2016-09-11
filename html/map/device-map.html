@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>地球村后台管理中心</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/public/style.css"/>
+    <link rel="stylesheet" href="/css/map/map.css"/>
+    <link rel="shortcut icon" href="/images/public/title_icon.png" type="image/x-icon">
+</head>
+<body class="bg map-index" id="map">
+    <!--主要部分-->
+    <main id="main">
+        <div class="container ">
+            <!--信息展示-->
+            <div class="info-show info-table-box">
+                <ul>
+                    <div v-if="!list" class="hint">正在加载中...</div>
+                    <li v-for="val in list">
+                        <h5 class="caption" v-cloak>{{val.title}}</h5>
+                        <span v-cloak>{{val.text}}</span>
+                    </li>
+                </ul>
+            </div>
+            <!--地图展示-->
+            <div class="map-block">
+                <span v-on:click="toggle">全国在线设备</span>
+                <div v-show="!showMap" id="mapChart" class="map-demo">
+                    <div class="hint-map">地图正在加载中...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class='map-mask' v-bind:class="{'show-mask':showMap}">
+        <img src='/images/public/close.png' class='map-close' v-on:click='closeMap'/>
+        <div class='map-title'>
+            <div class='map-time'>
+                <img src='/images/public/time.png'/>
+                <span id='mapTime'></span>地球村设备在线数
+            </div>
+            <div class='number-run'></div>
+        </div>
+        <div id='mapChartSpot'><div class="hint-map">地图正在加载中...</div></div>
+    </div>
+    <script src="/js/common.js" data-main="/js/map/device-map.js"></script>
+</body>
+</html>

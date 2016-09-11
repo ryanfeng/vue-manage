@@ -1,0 +1,52 @@
+/*
+* 公用样式
+* */
+@import "../public/var.less";
+body,html{
+  position: relative;
+  font-size: 16px;
+  font-family:Medium;
+  &.bg{
+    background:#f2f3f7;
+  }
+}
+#main{
+  display: block;
+  overflow-x: auto;
+  min-width: 800px;
+  margin:75px 15px 15px 185px;
+  background-color: #fff;
+  box-sizing: border-box;
+  &.transparent{
+    background-color: transparent;
+  }
+}
+.container{
+  padding:10px 10px 20px;
+  box-sizing: border-box;
+  &.paddingNone{
+    padding:0;
+  }
+}
+
+.link:hover{
+  text-decoration: underline;
+}
+.h5-caption{
+  padding-left: 4px;
+  color: #4a4a4a;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 30px;
+}
+.area-block{
+  margin: -10px -10px 0;
+  padding:0 10px 20px;
+  border-bottom:15px solid #f2f3f7;
+}
+template{
+  display: none;
+}
+[v-cloak] {
+    display: none;
+  }

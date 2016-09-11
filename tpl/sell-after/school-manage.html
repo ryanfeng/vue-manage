@@ -1,0 +1,39 @@
+<!--设备型号列表-->
+<table class="info-table">
+    <thead>
+    <tr>
+        <th v-for="val in titles" v-bind:style="val.styleObject">
+            {{val.text}}
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr v-for="val in dataList">
+            <td>{{$index+1+page}}</td>
+            <td>{{val.schoolName}}</td>
+            <td>{{val.address}}</td>
+            <td>{{val.contactName}}</td>
+            <td>{{val.telphone}}</td>
+            <td>{{val.classNums}}</td>
+            <td class="tools">
+                <ul>
+                    <li>
+                        <a href="./class-list.html?schoolId={{val.schoolId}}">{{val.tools.lookClass}}</a>
+                    </li>
+                    <li>
+                        <a href="./device-list.html?schoolId={{val.schoolId}}">{{val.tools.lookDevice}}</a>
+                    </li>
+                    <li>
+                        <a href="./new-class.html?schoolId={{val.schoolId}}">{{val.tools.new}}</a>
+                    </li>
+                    <li>
+                        <a href="./edit-school.html?schoolId={{val.schoolId}}">{{val.tools.editSchool}}</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr v-if="dataList.length==0" class="tc">
+            <td colspan="7"><b>没有数据</b></td>
+        </tr>
+    </tbody>
+</table>

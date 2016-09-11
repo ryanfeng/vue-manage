@@ -1,0 +1,23 @@
+<!--服务器设置-->
+<table class="input-form mt20">
+    <template v-if="list">
+        <tbody>
+            <tr v-for="val in list" class="{{val.class}}">
+                <th>{{val.title}}</th>
+                <td>
+                    <input id="{{val.id}}" type="{{val.type}}" style="position: relative" class="input input-long {{val.warning&&'warning'}}" v-on:keyup.enter="submit" disabled="{{val.disabled||false}}" v-on:blur="val.blur(val,list,channel)" v-model="val.value" type="text" placeholder="{{val.placeholder}}" value="{{val.value}}"/>
+                    <div class="hint">{{val.hint}}</div>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    <div class="mt20">
+                        <a href="javascript:void(0)" class="btn {{submitClass}} mr5" v-on:click="submit">{{submitValue}}</a>
+                        <a href="./school-device.html" class="btn {{cancelClass}} mr5">{{cancelValue}}</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </template>
+</table>

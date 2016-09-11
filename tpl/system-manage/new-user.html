@@ -1,0 +1,33 @@
+<!--新增用户-->
+<table class="input-form mt20">
+    <tbody>
+        <tr v-for="val in list">
+            <th>{{val.title}}</th>
+            <td>
+                <input type="{{val.type}}" class="input input-long {{val.warning&&'warning'}}" v-on:focus="focus(val)" v-on:keyup.enter="submit" v-on:blur="val.blur(val)" v-model="val.value" type="text" placeholder="{{val.placeholder}}" value="{{val.value}}"/>
+                <div class="hint">{{val.hint}}</div>
+            </td>
+        </tr>
+        <tr class="line">
+            <th>{{userGroup.title}}</th>
+            <td>
+                <div class="sod_select">
+                    <div class="sod_label">{{userGroup.option[0].roleName}}</div> 
+                    <div class="sod_list">
+                    <ul>
+                        <li v-for="val in userGroup.option" class="{{val.class}}" v-on:click="optionVal(val)" >{{val.roleName}}</li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>
+                <div class="mt20">
+                    <a href="javascript:void(0)" class="btn {{submitClass}} mr5" v-on:click="submit">{{submitValue}}</a>
+                    <a href="./user.html" class="btn {{cancelClass}} mr5">{{cancelValue}}</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

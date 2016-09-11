@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>地球村后台管理中心</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/public/style.css"/>
+    <link rel="shortcut icon" href="/images/public/title_icon.png" type="image/x-icon">
+</head>
+<body class="bg pre-sales-manufacturer" id="pre-sales">
+<!--主要部分-->
+<main id="main">
+    <!--位置-->
+    <div class="location">
+        <location></location>
+    </div>
+    <div class="container">
+        <!--绑定用户-->
+        <div class="input-form">
+        <template v-if="true">
+            <table class="w mt20">
+                <tbody>
+                <tr>
+                    <th>{{title}}</th>
+                    <td>{{titleName}}</td>
+                </tr>
+                <tr v-for="val in list" class="{{val.listClass}}">
+                    <th>{{val.title}}</th>
+                    <td>
+                        <div class="sod_select">
+                            <div class="sod_label">{{val.placeholder}}</div>
+                            <div class="sod_list">
+                                <ul>
+                                    <li class="selected">{{val.placeholder}}</li>
+                                    <li v-for="val in userGroup.option" v-on:click="optionVal(val)" >{{val.userName}}-{{val.loginName}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        <div class="mt20">
+                            <a href="javascript:void(0)" class="btn {{submitClass}} mr5" v-on:click="submit">{{submitValue}}</a>
+                            <a href="{{cancelLink}}" class="btn {{cancelClass}} mr5">{{cancelValue}}</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </template>
+        </div>
+    </div>
+</main>
+</body>
+<script src="/js/common.js" data-main="/js/pre-sales/bind-user.js"></script>
+</html>

@@ -1,0 +1,18 @@
+<!--趋势统计-->
+<div v-if="!list" class="hint">正在加载中...</div>
+<ul>    
+    <li v-for="val in list">
+        <h5 class="caption" v-cloak>{{val.title}}</h5>
+        <span v-cloak>{{val.text}}</span>
+        <div class="other">
+            <template v-if="val.status=='up'">
+                <i class="icon openColor">&#xe627;</i>
+                {{val.other}}
+            </template>
+            <template v-else>
+                <i class="icon warningColor">&#xe628;</i>
+                {{val.other}}
+            </template>
+        </div>
+    </li>
+</ul>

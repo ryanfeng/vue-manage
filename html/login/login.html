@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>地球村后台管理中心</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/public/style.css"/>
+    <link rel="stylesheet" href="/css/login/login.css"/>
+    <link rel="shortcut icon" href="/images/public/title_icon.png" type="image/x-icon">
+</head>
+<body>
+<img class="login-bg" src="/images/login/login_bg.png"/>
+<!--登录-->
+<div class="center-table">
+    <div class="box">
+        <div id="login">
+            <h1 id="login-logo"></h1>
+            <template v-if="list">
+                <ul>
+                    <li v-for="val in list" class="{{val.warning&&'warning'}}">
+                        <i class="icon">{{{val.icon}}}</i>
+                        <input type="{{val.type}}" class="input input-login" v-model="val.value" v-on:focus="focus(val)" v-on:blur="val.blur(val)" v-on:keyup.enter="submitLogin" placeholder="{{val.placeholder}}" value="{{val.value}}">
+                        <i class="icon-p icon-small-big icon-warning"></i>
+                        <i class="tooptip">{{val.hint}}</i>
+                    </li>
+                    <li>
+                        <input type="button" class="btn btn-success btn-login" disabled={{loginDisabled}} v-on:click="submitLogin" id="login-btn" value="{{loginBtn}}">
+                    </li>
+                    <li>
+                        <label class="next-auto-login">
+                        <span class="checkout-box {{nextAutoLogin?'on':''}}">
+                            <input id="next-auto-login" class="radio" type="checkbox" checked="{{nextAutoLogin?true:false}}"/>
+                        </span>
+                            <!--<input id="next-auto-login" type="checkbox"/>-->
+                            <span class="vm">{{nextAutoLoginText}}</span>
+                        </label>
+                    </li>
+                </ul>
+            </template>
+        </div>
+    </div>
+</div>
+<template v-if="Copyright">
+    <strong class="Copyright">{{Copyright}}</strong>
+</template>
+</body>
+<!--<script src="/js/plugIn/vue.js"></script>-->
+<script src="/js/common.js" data-main="/js/login/login.js"></script>
+</html>

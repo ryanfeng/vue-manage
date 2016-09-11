@@ -1,0 +1,25 @@
+<!--设备型号列表-->
+<table class="info-table">
+    <thead>
+    <tr>
+        <th v-for="val in titles" v-bind:style="val.styleObject">{{val.text}}</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr v-for="val in dataList">
+            <td>{{$index+1+page}}</td>
+            <td>{{val.categoryName}}</td>
+            <td>{{val.showModelName}}</td>
+            <td class="tools">
+                <ul>
+                    <li v-if="val.tools.editShow">
+                        <a href="./edit-model.html?categoryId={{val.categoryId}}&modelId={{val.modelId}}&modelCode={{val.modelCode}}&modelName={{val.modelName}}">{{val.tools.edit}}</a>
+                    </li> 
+                </ul>
+            </td>
+        </tr>
+        <tr v-if="dataList.length==0" class="tc">
+            <td colspan="4"><b>没有数据</b></td>
+        </tr>
+    </tbody>
+</table>

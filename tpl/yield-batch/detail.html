@@ -1,0 +1,34 @@
+<!--批次列表-->
+<table class="info-table SN-list">
+    <thead>
+    <tr>
+        <th v-for="val in titles" v-bind:style="val.styleObject">
+            {{val.text}}
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr v-for="val in dataList">
+            <td>{{$index+1+page}}</td>
+            <td>{{val.sn}}</td>
+            <td>{{val.connected==1?'是':''}}{{val.connected==-1?'---':''}}{{val.connected==0?'否':''}}</td>　
+            <td v-if="categoryCode=='001'" class="tools">
+                <ul>
+                    <li>
+                        <template v-if="val.initState==0">
+                            <a href="javascript:void(0)" v-on:click="setDeviceAllocate(val)">{{val.tools[val.initState]}}</a>
+                        </template>
+                        <template v-else>
+                            <template v-if="val.initState==1 || val.initState==2">
+                                {{val.tools[val.initState]}}&nbsp;<a href="javascript:void(0)" v-on:click="reset(val)">重置</a>
+                            </template>
+                            <template v-else>
+                                {{val.tools[val.initState]}}
+                            </template>
+                        </template>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

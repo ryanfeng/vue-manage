@@ -1,0 +1,83 @@
+<!--新增行业经销商-->
+<table class="input-form mt20">
+    <tbody>
+        <tr v-for="val in tradeWay.list" class="tradeWay">
+            <th v-if="val.first" rowspan="{{tradeWay.row}}">{{tradeWay.title}}</th>
+            <td>
+                <template v-if="val.first">
+                    <div class="hint">{{val.hint}}</div>
+                </template>
+                <!--行业-->
+                <div class="sod_select area light-long">
+                    <div class="sod_label">{{val.tradeActive.industryName}}</div>
+                    <div class="sod_list">
+                        <ul>
+                            <li v-for="option in val.trades" class="{{option.class}} notSetVal" v-on:click="tradeSelect(option,val)">{{option.industryName}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <template v-if="val.first">
+                    <input v-if="tradeWay.row<tradeWay.max" type="button" class="btn {{val.btnClass}} btn-light-long" v-on:click="newTradeWay" value="{{val.btnValue}}"/>
+                    <input v-if="tradeWay.row>=tradeWay.max" type="button" class="btn {{val.btnClass}} btn-light-long" disabled value="{{val.btnValue}}"/>
+                </template>
+                <template  v-if="!val.first">
+                    <input type="button" class="btn {{val.btnClass}} btn-light-long" v-on:click="cancelTradeWay($index)" value="{{val.btnValue}}"/>
+                </template>
+            </td>
+        </tr>
+        <tr v-for="val in list">
+            <th>{{val.title}}</th>
+            <td>
+                <input class="input input-long {{val.warning&&'warning'}}" type="text" v-on:blur="val.blur(val)" v-on:keyup.enter="submit" v-on:focus="focus(val)" v-model="val.value" placeholder="{{val.placeholder}}" value="{{val.value}}"/>
+                <div class="hint">{{val.hint}}</div>
+                <template v-if="val.success">
+                    <input v-if="val.user" class="input input-long mt10" type="text" disabled value="{{val.user.value}}"/>
+                </template>
+            </td>
+        </tr>
+        <tr class="line">
+            <th>{{address.title}}</th>
+            <td>
+                <div>
+                    <!--省份-->
+                    <div class="sod_select province light-long">
+                        <div class="sod_label">{{address.provinceActive.areaName}}</div>
+                        <div class="sod_list">
+                            <ul>
+                                <li v-for="option in address.province" class="{{option.class}} notSetVal" v-on:click="provinceSelect(option,address)">{{option.areaName}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--城市-->
+                    <div class="sod_select city light-long">
+                        <div class="sod_label">{{address.cityActive.areaName}}</div>
+                        <div class="sod_list">
+                            <ul>
+                                <li v-for="option in address.city" class="{{option.class}} notSetVal" v-on:click="citySelect(option,address)">{{option.areaName}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--区县-->
+                    <div class="sod_select area light-long">
+                        <div class="sod_label">{{address.areaActive.areaName}}</div>
+                        <div class="sod_list">
+                            <ul>
+                                <li v-for="option in address.area" class="{{option.class}} notSetVal" v-on:click="areaSelect(option,address)">{{option.areaName}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <textarea class="mt15 textarea" v-model="address.value" placeholder="{{address.placeholder}}"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>
+                <div class="mt20">
+                    <a href="javascript:void(0)" class="btn mr5 {{tool.submitClass}}" v-on:click="submit">{{tool.submitValue}}</a>
+                    <a href="./trade.html" class="btn mr5 {{tool.cancelClass}}">{{tool.cancelValue}}</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

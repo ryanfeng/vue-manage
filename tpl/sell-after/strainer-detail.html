@@ -1,0 +1,25 @@
+<h5 class="h5-caption">滤网详情</h5>
+<!--滤网详情-->
+<table class="strainer-detail-table info-table">
+    <thead>
+    <tr>
+        <th v-for="val in titles" v-bind:style="val.styleObject">
+            {{val.text}}
+        </th>
+    </tr>
+    </thead> 
+    <tbody>
+        <tr> 
+            <td>{{detail.modelName}}</td> 
+            <td>{{detail.sn}}</td>
+            <td>{{detail.remainingLife}}</td>
+            <td>{{detail.isBind=="1"?"是":"否"}}</td>
+            <td>{{detail.strainerChangeDate}}</td> 
+            <td>{{detail.factoryName}}</td>
+            <td>{{detail.channelName}}</td>
+            <td>{{{detail.deviceView.factoryName}}}</td>
+            <td class="long">{{detail.deviceView.appUserPhone}}</td>
+            <td>{{detail.deviceView.fullAdderss}}</td>
+        </tr>
+    </tbody>
+</table>

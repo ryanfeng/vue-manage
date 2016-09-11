@@ -1,0 +1,63 @@
+/*
+* 提示框样式
+* */
+@import "../public/var.less";
+.alertbox{
+  /*弹框*/
+  display: table;
+  position: fixed;
+  top:0;
+  left:0; 
+  z-index: 20;
+  width:100%;
+  height:100%;
+  background-color: rgba(255,255,255,0.2);
+  opacity:0;
+  vertical-align: middle;
+  .icon-close{ 
+    position: absolute;
+    top:5px;
+    right:5px;
+    color: #ccc;
+    font-size: 24px;
+    cursor: pointer;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+  .box{
+    display: inline-block;
+    position: relative;
+    max-width: 1000px;
+    padding:20px;
+    border-radius:4px;
+    background-color: rgba(255,255,255,0.8);
+    box-sizing: border-box;
+    box-shadow:3px 3px 11px 9px #d9d8dd;
+    color: @textColor;
+    line-height: 150%;
+    text-align: left;
+    .main-icon{
+      font-size: 28px;
+    }
+  } 
+  .bg{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background:transparent;
+  }
+  /*隐藏*/
+  &.hide{
+    display: table;
+    opacity: 0;
+    visibility: hidden;
+  }
+  /*显示*/
+  &.show{
+    opacity: 1;
+    visibility: visible; 
+  }
+}

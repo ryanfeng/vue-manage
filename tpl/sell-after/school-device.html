@@ -1,0 +1,55 @@
+<!--设备型号列表-->
+<table class="info-table">
+    <thead>
+    <tr>
+        <th v-for="val in titles" v-bind:style="val.styleObject">
+            <template v-if="val.select">
+                <div class="sod_select">
+                    <div class="sod_label">{{val.active}}</div>
+                    <div class="sod_list">
+                        <ul>
+                            <li v-for="option in val.options" v-on:click="val.click(option,val)" class="{{option.class}}">{{option.text}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </template>
+            <template v-else>
+                {{val.text}}
+            </template>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr v-for="val in dataList">
+            <td>{{$index+1+page}}</td>
+            <td>{{val.schoolView.address}}</td>
+            <td>{{val.schoolView.schoolName}}</td>
+            <td class="no-break">{{val.classView.className}}</td>
+            <td>{{val.classView.installDate}}</td>
+            <td class="ellipsis">{{"…"+val.sn.slice(20)}}</td>
+            <td class="ellipsis">{{"…"+val.strainerView.sn.slice(20)}}</td>
+            <td>{{val.strainerView.remainingLife}}</td>
+            <td>{{val.deviceStatus}}</td>
+            <td>{{val.fullAdderss}}</td>
+            <td>{{val.dealerView.contactName}}</td>
+            <td>
+                <i v-if="val.uvRun==1" class="icon openColor">&#xe623;</i>
+                <i v-else class="icon closeColor">&#xe622;</i>
+            </td>
+            <td class="tools"> 
+                <ul>
+                    <li  v-if="val.tools.statusShow">
+                        <a v-if="val.uvRun==1" href="javascript:void(0)" v-on:click="statueChange(val)">{{val.tools.statusTrue}}</a>
+                        <a v-else href="javascript:void(0)" v-on:click="statueChange(val)">{{val.tools.statusFalse}}</a>
+                    </li>
+                    <li>
+                        <a href="./school-detail.html?deviceId={{val.deviceId}}&strainerId={{val.strainerView.strainerId}}">{{val.tools.look}}</a>
+                    </li>  
+                </ul>
+            </td>
+        </tr>
+        <tr v-if="dataList.length==0" class="tc">
+            <td colspan="13"><b>没有数据</b></td>
+        </tr>
+    </tbody>
+</table>

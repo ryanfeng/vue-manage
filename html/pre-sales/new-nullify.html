@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>地球村后台管理中心</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/public/style.css"/>
+    <link rel="shortcut icon" href="/images/public/title_icon.png" type="image/x-icon">
+</head>
+<body class="bg pre-sales-batch-list" id="pre-sales">
+<!--主要部分-->
+<main id="main">
+    <!--位置-->
+    <div class="location">
+        <location></location>
+    </div>
+    <div class="container">
+        <!--废弃SN-->
+        <div class="input-form">
+            <template v-if="list">
+                <table class="w mt20">
+                    <tbody>
+                    <tr v-for="val in list" class="{{$index+1==list.length?'line':''}}">
+                        <th>{{val.title}}</th>
+                        <td>
+                            <input type="{{val.type}}" class="input input-long mr5 {{val.warning&&'warning'}}" v-on:keyup.enter="submit" v-on:blur="val.blur(val)" v-on:focus="focus(val)" v-model="val.value" type="text" placeholder="{{val.placeholder}}" value="{{val.value}}"/>
+                            <template v-if="val.first">
+                                <input v-if="listInfo.row<listInfo.max" type="button" class="btn {{listInfo.newBtn}} btn-light-long" v-on:click="newList" value="{{listInfo.newBtnValue}}"/>
+                                <input v-if="listInfo.row>=listInfo.max" type="button" class="btn {{listInfo.newBtn}} btn-light-long" disabled value="{{listInfo.newBtnValue}}"/>
+                            </template>
+                            <template  v-if="!val.first">
+                                <input type="button" class="btn {{listInfo.cancelBtn}} btn-light-long" v-on:click="cancelList($index)" value="{{listInfo.cancelBtnValue}}"/>
+                            </template>
+                            <div class="hint">{{val.hint}}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            <div class="mt20">
+                                <a href="javascript:void(0)" class="btn {{submitClass}} mr5" v-on:click="submit">{{submitValue}}</a>
+                                <a href="{{cancelLink}}" class="btn {{cancelClass}} mr5">{{cancelValue}}</a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </template>
+        </div>
+    </div>
+</main>
+</body>
+<script src="/js/common.js" data-main="/js/pre-sales/new-nullify.js"></script>
+</html>

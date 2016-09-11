@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>地球村后台管理中心</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/public/style.css"/>
+    <link rel="stylesheet" href="/css/system-manage/role.css"/>
+    <link rel="shortcut icon" href="/images/public/title_icon.png" type="image/x-icon">
+</head>
+<body class="bg system-dealer-retail" id="system-dealer">
+<!--主要部分-->
+<main id="main">
+    <!--位置-->
+    <div class="location">
+        <location></location>
+    </div>
+    <div class="container">
+        <!--新增零售经销商&&搜索-->
+        <div class="pr">
+            <div class="add">
+                <template v-if="newBtnClass">
+                    <input type="button" v-on:click="new()" class="btn {{newBtnClass}}" value="{{newBtnValue}}"/>
+                </template>
+            </div>
+            <!--搜索-->
+            <div class="search">
+                <search></search>
+            </div>
+        </div>
+        <!--销售区域-->
+        <div class="tr saleArea pt20 pr20">
+            <template v-if="title">
+                <span class="vm textColor f14">{{title}}</span>
+                <!--省份-->
+                <div class="sod_select province">
+                    <div class="sod_label">{{provinceActive.areaName}}</div>
+                    <div class="sod_list">
+                        <ul>
+                            <li v-for="option in province" class="{{option.class}} notSetVal" v-on:click="provinceSelect(option)">{{option.areaName}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--城市--> 
+                <div class="sod_select city ">
+                    <div class="sod_label">{{cityActive.areaName}}</div>
+                    <div class="sod_list">
+                        <ul>
+                            <li v-for="option in city" class="{{option.class}} notSetVal" v-on:click="citySelect(option)">{{option.areaName}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--区县-->
+                <div class="sod_select area onRight">
+                    <div class="sod_label">{{areaActive.areaName}}</div>
+                    <div class="sod_list">
+                        <ul>
+                            <li v-for="option in area" class="{{option.class}} notSetVal" v-on:click="areaSelect(option)">{{option.areaName}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <!--信息表格-->
+        <div class="pl10 pr10 pt20 info-table-box">
+            
+        </div>
+        <!--页码-->
+        <div class="page">
+            <page></page>
+        </div>
+    </div>
+</main>
+</body>
+<script src="/js/common.js" data-main="/js/system-dealer/retail.js"></script>
+</html>

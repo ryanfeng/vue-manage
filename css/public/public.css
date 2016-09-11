@@ -1,0 +1,173 @@
+/*
+* 公用样式
+* */
+/*
+* 整站变量
+* */
+/*
+* 全站颜色
+* */
+.mainColor {
+  color: #00B3A9;
+}
+.secondColor {
+  color: #1BB8CE;
+}
+.thirdlyColor {
+  color: #424F63;
+}
+.textColor {
+  color: #7A7676;
+}
+.secondTextColor {
+  color: #9b9b9b;
+}
+.warningColor {
+  color: #e73a33;
+}
+.primaryColor {
+  color: #4a90e2;
+}
+.openColor {
+  color: #abcd03;
+}
+.closeColor {
+  color: #fa8564;
+}
+.whiteBg {
+  background-color: #fff;
+}
+/*
+* 变量样式
+* */
+/*圆角兼容*/
+/*容器阴影兼容*/
+/*文字阴影兼容*/
+/*动画效果*/
+/*圆角*/
+/*上方三角形*/
+/*下方三角形*/
+/*右方三角形*/
+/*左方三角形*/
+/*缩放大小*/
+/*旋转效果*/
+/*公用左右垂直居中*/
+.center-box {
+  display: table-cell;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+.center-table {
+  position: absolute;
+  display: table;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+.center-table .box {
+  display: table-cell;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+/*旋转动画*/
+.rotare-animate {
+  animation: animate 1s;
+  -webkit-animation: animate 1s infinite;
+  /* Safari and Chrome */
+}
+.rotare-animate-progress 100% {
+  transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  /* IE 9 */
+  -moz-transform: rotate(360deg);
+  /* Firefox */
+  -webkit-transform: rotate(360deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(360deg);
+  /* Opera */
+}
+@keyframes animate {
+  100% {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+    /* Opera */
+  }
+}
+@-webkit-keyframes animate {
+  100% {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+    /* Opera */
+  }
+}
+/* Safari and Chrome */
+body,
+html {
+  position: relative;
+  font-size: 16px;
+  font-family: Medium;
+}
+body.bg,
+html.bg {
+  background: #f2f3f7;
+}
+#main {
+  display: block;
+  overflow-x: auto;
+  min-width: 800px;
+  margin: 75px 15px 15px 185px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+#main.transparent {
+  background-color: transparent;
+}
+.container {
+  padding: 10px 10px 20px;
+  box-sizing: border-box;
+}
+.container.paddingNone {
+  padding: 0;
+}
+.link:hover {
+  text-decoration: underline;
+}
+.h5-caption {
+  padding-left: 4px;
+  color: #4a4a4a;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 30px;
+}
+.area-block {
+  margin: -10px -10px 0;
+  padding: 0 10px 20px;
+  border-bottom: 15px solid #f2f3f7;
+}
+template {
+  display: none;
+}
+[v-cloak] {
+  display: none;
+}

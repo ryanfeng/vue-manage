@@ -1,0 +1,24 @@
+<!--即将到期列表-->
+<div class="be-about-to-over-table">
+    <h5 class="h5-caption">{{caption}}</h5>
+    <table class="info-table">
+        <thead>
+        <tr>
+            <th v-for="val in titles" v-bind:style="val.styleObject">
+                {{val.text}}
+            </th>
+        </tr>
+        </thead> 
+        <tbody>
+            <tr v-for="val in dataList">
+                <td>{{$index+1}}</td> 
+                <td>{{val.areaName}}</td>
+                <td>{{val.deviceCount}}</td>
+                <td>{{val.deviceRatio}}</td>
+            </tr>
+            <tr v-if="dataList.length==0" class="tc">
+                <td colspan="8"><b>没有数据</b></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

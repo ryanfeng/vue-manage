@@ -1,0 +1,23 @@
+<h5 class="h5-caption">用户信息</h5>
+<!--用户信息-->
+<table class="user-info-detail-table info-table">
+    <thead>
+    <tr>
+        <th v-for="val in titles" v-bind:style="val.styleObject">
+            {{val.text}}
+        </th>
+    </tr>
+    </thead> 
+    <tbody>
+        <tr> 
+            <td>{{detail.appUserPhone}}</td> 
+            <td>{{detail.appRegDate}}</td>
+            <td>{{detail.appPhoneType}}</td>
+            <td>{{detail.modelName}}</td>
+            <td>{{detail.strainerView.modelName}}</td>
+            <td>{{detail.strainerView.remainingLife}}</td>
+            <td class="long">{{detail.fullAdderss}}</td>
+            <td>{{deviceNum}}</td>
+        </tr>
+    </tbody>
+</table> 

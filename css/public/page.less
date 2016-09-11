@@ -1,0 +1,75 @@
+/*
+* 页码样式
+* */
+@import "../public/var.less";
+/*页码*/
+.page{
+  position: relative;
+  padding:22px 10px 15px;
+  font-family:STHeitiSC-Light;
+  text-align: right;
+  .pageNumber {
+    width: 20px;
+    border: none;
+    height: 25px;
+    text-align: center;
+  }
+  aside{
+    position: absolute;
+    bottom:10px;
+    left:10px;
+    color:#7a7676;
+    font-size:14px;
+    text-align:left;
+  }
+  ul{
+    font-size: 0;
+  }
+  li{
+    display: inline-block;
+    min-width: 32px;
+    height:32px;
+    margin:0 2px;
+    padding:0 10px;
+    border:1px solid #ccc;
+    box-sizing: border-box;
+    color:#4a4a4a;
+    font-size:14px;
+    line-height: 30px;
+    cursor: pointer;
+    .icon{
+      padding-right:8px;
+      font-size: 20px;
+    }
+    &.prev,&.next{
+      color: @secondTextColor;
+      &.disabled{
+        opacity: 0.5;
+        cursor: default;
+        &:hover{
+          border:1px solid #ccc;
+        }
+      }
+    }
+    &:hover{
+      border:1px solid @mainColor;
+    }
+    //省略号
+    &.omit{
+      position: relative;
+      top: 9px;
+      min-width: 20px;
+      padding: 0 2px 0 0;
+      border: none;
+      // letter-spacing: -2px;
+      cursor: default;
+    }
+    //选中状态
+    &.active{
+      border:1px solid @mainColor;
+      background-color: @mainColor;
+      color: #fff;
+      cursor: default;
+    }
+  }
+}

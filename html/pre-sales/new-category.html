@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>地球村后台管理中心</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/public/style.css"/>
+    <link rel="shortcut icon" href="/images/public/title_icon.png" type="image/x-icon">
+</head>
+<body class="bg pre-sales-device" id="pre-sales">
+<!--主要部分-->
+<main id="main">
+    <!--位置-->
+    <div class="location">
+        <location></location>
+    </div>
+    <div class="container">
+        <!--新增分类-->
+        <div class="input-form">
+            <template v-if="list">
+            <table class="w mt20">
+                <tbody>
+                    <tr v-for="val in list" class="{{val.listClass}}">
+                        <th>{{val.title}}</th>
+                        <td>
+                            <input type="{{val.type}}" class="input input-long {{val.warning&&'warning'}}" v-on:keyup.enter="submit" v-on:blur="val.blur(val)" v-on:focus="focus(val)" v-model="val.value" type="text" placeholder="{{val.placeholder}}" value="{{val.value}}"/>
+                            <div class="hint">{{val.hint}}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            <div class="mt20">
+                                <a href="javascript:void(0)" class="btn {{submitClass}} mr5" v-on:click="submit">{{submitValue}}</a>
+                                <a href="./device.html" class="btn {{cancelClass}} mr5">{{cancelValue}}</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </template>
+        </div>
+    </div>
+</main>
+</body>
+<script src="/js/common.js" data-main="/js/pre-sales/new-category.js"></script>
+</html>

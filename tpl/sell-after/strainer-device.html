@@ -1,0 +1,21 @@
+<h5 class="h5-caption">设备详情</h5>
+<!--设备详情-->  
+<table class="strainer-device-table info-table">
+    <thead>
+    <tr>  
+        <th v-for="val in titles" v-bind:style="val.styleObject">
+            {{val.text}}
+        </th>
+    </tr>
+    </thead>  
+    <tbody>
+        <tr> 
+            <td>{{detail.modelName}}</td> 
+            <td>{{detail.sn}}</td>
+            <td>{{detail.factoryName}}</td>
+            <td>{{detail.isConnect==0?"否":"是"}}</td>
+            <td>{{detail.channelName}}</td>
+            <td>{{detail.strainerView.factoryName}}</td>
+        </tr>
+    </tbody>
+</table>

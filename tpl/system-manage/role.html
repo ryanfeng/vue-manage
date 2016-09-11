@@ -1,0 +1,30 @@
+<!--角色管理表格-->
+<table class="info-table">
+    <thead>
+    <tr>
+        <th v-for="val in titles" v-bind:style="val.styleObject">{{val.text}}</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr v-for="val in dataList" data="{{val.roleId}}">
+            <td>{{$index+1+page}}</td>
+            <td>{{val.roleName}}</td>
+            <td class="tools">
+                <ul>
+                    <li v-if="val.tools.editShow">
+                        <a href="/html/system-manage/edit-role.html?roleId={{val.roleId}}&roleName={{val.roleName}}">{{val.tools.edit}}</a>
+                    </li>
+                    <li>
+                        <a href="/html/system-manage/role-detail.html?roleId={{val.roleId}}&roleName={{val.roleName}}">{{val.tools.detail}}</a>
+                    </li>
+                    <li v-if="val.tools.delShow">
+                        <a href="javascript:void(0)" v-on:click="roleDel(val)">{{val.tools.del}}</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr v-if="dataList.length==0" class="tc">
+            <td colspan="6"><b>没有数据</b></td>
+        </tr>
+    </tbody>
+</table>

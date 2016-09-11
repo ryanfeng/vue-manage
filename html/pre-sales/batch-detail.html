@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>地球村后台管理中心</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/public/style.css"/>
+    <link rel="shortcut icon" href="/images/public/title_icon.png" type="image/x-icon">
+</head>
+<body class="bg pre-sales-batch-list" id="pre-sales">
+<!--主要部分-->
+<main id="main">
+    <!--位置-->
+    <div class="location"> 
+        <location></location>
+    </div>
+    
+    <div class="container">
+        <!--批次详情-->
+        <h5 class="h5-caption pb10">批次详情</h5>
+        <div class="detail-info area-block">
+            <div class="info-table">
+                <template v-if="val">
+                    <table class="w">
+                        <thead>
+                        <tr>
+                            <th v-for="val in titles" v-bind:style="val.styleObject">
+                                {{val.text}}
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{val.number}}</td>
+                            <td>{{val.batchName}}</td>
+                            <td>{{val.createDate}}</td>
+                            <td>{{val.operatorName}}</td>
+                            <td>{{val.categoryName}}</td>
+                            <td>{{val.modelName}}</td>
+                            <td>{{val.quantity}}</td>
+                            <td>{{val.factoryName}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </template>
+            </div>
+        </div>
+        <!--分类-->
+        <div class="mt30">
+            <div class="category">
+                <category></category>
+            </div>
+        </div>
+        <!--搜索-->
+        <div class="pr pt10 ">
+            <div class="add mb5">
+                <template v-if="btns">
+                    <input v-for="val in btns" type="button" v-on:click="val.click" class="btn {{val.newBtnClass}} mr10" value="{{val.newBtnValue}}"/>
+                </template>
+            </div>
+            <!--搜索-->
+            <div class="search">
+                <search></search>
+            </div>
+        </div>
+        <!--信息表格-->
+        <div class="pt30 info-table-box"></div>
+        <!--页码-->
+        <div class="page"></div>
+    </div>
+</main>
+</body>
+<script src="/js/common.js" data-main="/js/pre-sales/batch-detail.js?n"></script>
+</html>

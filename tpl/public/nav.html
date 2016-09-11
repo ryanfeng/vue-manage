@@ -1,0 +1,19 @@
+<!--公用头部-->
+<nav id="nav">
+    <ul> 
+        <li v-for="(index, val) in navData" v-if="val.show!=false" class="{{val.active}}">
+            <h3 v-on:click="clickList($event)" class="caption">
+                <i class="icon" v-if="index == 3"><img src="/images/public/icon-sale-before.png"/></i>
+                <i class="icon" v-if="index == 4"><img src="/images/public/icon-sale.png"/></i>
+                <i class="icon" v-if="index != 3 && index != 4">{{{val.icon}}}</i>{{val.title}}
+                <i class="icon icon-arrow">&#xe604;</i>
+            </h3>
+            <!--二级菜单-->
+            <ul class="sub-nav {{val.active&&'show'}}">
+                <li v-for="subVal in val.subVal" v-if="subVal.show!=false" class="{{subVal.active}} {{subVal.class}}">
+                    <h4><a href="{{subVal.href}}">{{subVal.title}}</a></h4>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

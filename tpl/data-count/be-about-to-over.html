@@ -1,0 +1,41 @@
+<!--即将到期列表-->
+<div class="be-about-to-over-table">
+    <h5 class="h5-caption">{{caption}}</h5>
+    <table class="info-table">
+        <thead>
+        <tr>
+            <th v-for="val in titles" v-bind:style="val.styleObject">
+                <template v-if="val.select">
+                    <!--省份-->
+                    <div class="sod_select">
+                        <div class="sod_label">{{val.active}}</div>
+                        <div class="sod_list">
+                            <ul>
+                                <li v-for="option in val.options" v-on:click="val.click(option,val)" class="{{option.class}}">{{option.channelName}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </template>
+                <template v-else>
+                    {{val.text}}
+                </template>
+            </th>
+        </tr>
+        </thead> 
+        <tbody>
+            <tr v-for="val in dataList">
+                <td>{{$index+1+page}}</td>
+                <td>{{val.modelName}}</td>
+                <td>{{val.sn}}</td>
+                <td>{{val.remainingLife}}</td>
+                <td>{{val.deviceView.isConnect==0?'否':'是'}}</td>
+                <td>{{val.channelName}}</td>
+                <td>{{val.deviceView.nickName}}</td>
+                <td class="long">{{val.deviceView.fullAdderss}}</td>
+            </tr>
+            <tr v-if="dataList.length==0" class="tc">
+                <td colspan="8"><b>没有数据</b></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

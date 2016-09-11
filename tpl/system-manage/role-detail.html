@@ -1,0 +1,55 @@
+<!--角色详情-->
+<table class="info-table haveBorder">
+    <thead>
+    <tr>
+        <th v-for="val in titles" v-bind:style="val.styleObject">{{val.text}}</th>
+    </tr>
+    </thead>
+    <tbody v-for="val in dataList">
+        <tr v-for="subInfo in val.subInfo">
+            <td class="vm" rowspan="{{val.row}}" v-if="subInfo.first">{{val.number}}</td>
+            <td class="vm" rowspan="{{val.row}}" v-if="subInfo.first">
+                <label class="pl50 checkout-table">
+                        <span class="checkout-box disabled {{val.hasIt==1?'on':''}}" >
+                            <input class="radio" type="checkbox" disabled checked="{{val.hasIt?true:false}}"/>
+                        </span>
+                        <span class="vm">
+                            {{val.permissionName}}
+                        </span>
+                </label>
+            </td>
+            <td class="firstDefault">
+                <template v-if="subInfo.second.text">
+                    <ul class="labelList">
+                        <li data="2">
+                            <label class="checkout-table">
+                                    <span class="checkout-box disabled {{subInfo.second.hasIt?'on':''}}" >
+                                        <input class="radio" type="checkbox" disabled checked="{{subInfo.second.hasIt?true:false}}"/>
+                                    </span>
+                                    <span class="vm">
+                                        {{subInfo.second.text}}
+                                    </span>
+                            </label>
+                        </li>
+                    </ul>
+                </template>
+            </td>
+            <td>
+                <ul class="labelList">
+                    <template v-for="info in subInfo.third">
+                        <li data="3">
+                            <label class="checkout-table">
+                                    <span class="checkout-box disabled {{info.hasIt?'on':''}}" >
+                                        <input class="radio" type="checkbox" disabled checked="{{info.hasIt?true:false}}"/>
+                                    </span>
+                                    <span class="vm">
+                                        {{info.text}}
+                                    </span>
+                            </label>
+                        </li>
+                    </template>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

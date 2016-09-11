@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>地球村后台管理中心</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/public/style.css"/>
+    <link rel="stylesheet" href="/css/system-manage/role.css"/>
+    <link rel="shortcut icon" href="/images/public/title_icon.png" type="image/x-icon">
+</head>
+<body class="bg yield-batch-list" id="yield-batch">
+<!--主要部分-->
+<main id="main">
+    <!--位置-->
+    <div class="location"> 
+        <location></location>
+    </div>
+    
+    <div class="container">
+        <!--批次详情-->
+        <h5 class="h5-caption pb10">批次详情</h5>
+        <div class="detail-info area-block">
+            <template v-if="val">
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th v-for="val in titles" v-bind:style="val.styleObject">
+                                {{val.text}}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{val.number}}</td>
+                            <td>{{val.batchName}}</td>
+                            <td>{{val.createDate}}</td>
+                            <td>{{val.operatorName}}</td>
+                            <td>{{val.categoryName}}</td>
+                            <td>{{val.modelName}}</td>
+                            <td>{{val.quantity}}</td>
+                            <td>{{val.factoryName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </template>
+        </div>
+        
+        <h5 class="h5-caption mt20">SN编码列表</h5>
+        <!--搜索-->
+        <div class="pr mt20">
+            <div class="refresh"> 
+                <template v-if="newBtnClass">
+                    <input type="button" v-on:click="refresh" disabled="{{type?true:false}}" class="btn {{newBtnClass}}" value="{{newBtnValue}}"/>
+                </template>
+            </div>
+            <!--搜索-->
+            <div class="search">
+                <search></search>
+            </div>
+        </div>
+        <!--筛选-->
+        <div class="tr select pt20 pr20">
+            <template v-if="title">
+                <span class="vm textColor f14">{{title}}</span>
+                <div class="sod_select area onRight">
+                    <div class="sod_label">{{active}}</div>
+                    <div class="sod_list">
+                        <ul>
+                            <li v-for="option in option" class="{{option.class}} notSetVal" v-on:click="selectStatus(option)">{{option.text}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <!--信息表格-->
+        <div class="pl10 pr10 pt30 info-table-box"></div>
+        <!--页码-->
+        <div class="page"></div>
+    </div>
+</main>
+</body>
+<script src="/js/common.js" data-main="/js/yield-batch/detail.js?"></script>
+</html>

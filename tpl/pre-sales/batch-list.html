@@ -1,0 +1,32 @@
+<!--批次列表-->
+<table class="info-table">
+    <thead>
+    <tr>
+        <th v-for="val in titles" v-bind:style="val.styleObject">
+            {{val.text}}
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr v-for="val in dataList">
+            <td>{{$index+1+page}}</td>
+            <td>{{val.batchName}}</td>
+            <td>{{val.createDate}}</td> 
+            <td>{{val.operatorName}}</td>
+            <td>{{val.categoryName}}</td> 
+            <td>{{val.modelName}}</td>
+            <td>{{val.quantity}}</td> 
+            <td>{{val.factoryName}}</td>
+            <td class="tools">
+                <ul> 
+                    <li> 
+                        <a href="./batch-detail.html?batchId={{val.batchId}}&categoryCode={{val.categoryCode}}">{{val.tools.detail}}</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr v-if="dataList.length==0" class="tc">
+            <td colspan="9"><b>没有数据</b></td>
+        </tr>
+    </tbody>
+</table>
